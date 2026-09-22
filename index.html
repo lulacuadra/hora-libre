@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     HORA LIBRE — One page (v2, identidad real de marca)
+     ------------------------------------------------------------
+     CÓMO REEMPLAZAR CONTENIDO
+
+     1) FOTOS
+        Cada foto es un bloque así:
+
+          <div class="media-frame">
+            <!-- CAMBIAR FOTO: hero-hora-libre.jpg -->
+            <div class="ph" data-tone="1"><span class="ph__tag">hero-hora-libre.jpg</span></div>
+          </div>
+
+        Para poner la foto real, borrá el <div class="ph">...</div>
+        completo y poné en su lugar:
+
+          <img class="media-img" src="images/hero-hora-libre.jpg"
+               alt="Descripción de la foto" loading="lazy">
+
+        El contenedor .media-frame ya resuelve tamaño y recorte
+        (object-fit: cover), así que la imagen se acomoda sola.
+
+     2) WHATSAPP
+        Buscá "5491100000000" en este archivo y reemplazalo por
+        el número real (código de país + área, sin 0 ni 15).
+
+     3) INSTAGRAM
+        Ya está cargado: https://www.instagram.com/horalibre.dancewear/
+
+     4) LOGO
+        El logo es tipográfico ("hora" en fucsia + "libre" en violeta,
+        apilado, igual que el isologo real). Si más adelante hay un
+        archivo de logo, reemplazá el contenido de <a class="brand">
+        por un <img>.
+
+     5) PREMIOS
+        Cada premio es un .award-card dentro de #premios.
+        Se puede copiar/pegar o borrar libremente.
+
+     ============================================================ -->
+
+<title>Vestuario de danza personalizado | Hora Libre</title>
+<meta name="description" content="Diseño y confección de vestuario para danza, competencias, muestras, uniformes y merch para estudios y compañías. Hora Libre — Buenos Aires, Argentina.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hora Libre">
+<meta property="og:title" content="Hora Libre — Vestuarios hechos para moverse">
+<meta property="og:description" content="Diseño y confección de vestuario, uniformes y merch para estudios, compañías y grupos de danza. Buenos Aires, Argentina.">
+<!-- CAMBIAR FOTO: og-cover.jpg (1200x630) -->
+<meta property="og:image" content="images/og-cover.jpg">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- CAMBIAR LOGO: reemplazar por favicon real si existe -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F7F5F2'/%3E%3Ctext x='50' y='68' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='56' fill='%23E31C6E' text-anchor='middle'%3Eh%3C/text%3E%3C/svg%3E">
+
+<meta name="theme-color" content="#F7F5F2">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   RESET
+===================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4, p { margin: 0; }
+svg { display: block; }
+
+/* =====================================================
+   VARIABLES — paleta tomada del catálogo real de Hora Libre
+===================================================== */
+:root{
+  --pink: #E31C6E;
+  --pink-deep: #B7135A;
+  --pink-tint: #FBE3ED;
+  --violet: #5C2D91;
+  --violet-deep: #43206C;
+  --violet-tint: #EAE1F4;
+
+  --paper: #F7F5F2;
+  --paper-alt: #EFEBE5;
+  --stone: #DEDAD4;
+  --ink: #241E2E;
+  --ink-soft: #5B5566;
+  --line: rgba(36,30,46,0.14);
+  --on-brand: #FBF8F4;
+
+  --display: "Baloo 2", "Arial Rounded MT Bold", sans-serif;
+  --sans: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+  --script: "Caveat", cursive;
+
+  --fs-display: clamp(2.6rem, 6vw + 1rem, 5.6rem);
+  --fs-h2: clamp(2.1rem, 4vw + 1rem, 3.4rem);
+  --fs-h3: clamp(1.3rem, 1.6vw + 0.8rem, 1.8rem);
+  --fs-lead: clamp(1.05rem, 0.6vw + 0.9rem, 1.28rem);
+  --fs-body: clamp(1rem, 0.2vw + 0.92rem, 1.08rem);
+  --fs-small: 0.86rem;
+  --fs-nav: 0.98rem;
+
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-pad: clamp(4rem, 8vw, 7rem);
+  --radius: 26px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --dur-s: .3s;
+  --dur-m: .6s;
+  --dur-l: .9s;
+}
+
+/* =====================================================
+   BASE
+===================================================== */
+html{ scroll-behavior: smooth; }
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection{ background: var(--pink); color: var(--on-brand); }
+
+.container{
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+  outline: 3px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.skip-link{
+  position: absolute; left: 1rem; top: -3rem;
+  background: var(--ink); color: var(--paper);
+  padding: .75rem 1.25rem; z-index: 999;
+  transition: top var(--dur-s) var(--ease);
+  font-size: var(--fs-small); border-radius: 0 0 10px 10px;
+}
+.skip-link:focus{ top: 0; }
+
+h1, h2, h3{ font-family: var(--display); font-weight: 700; line-height: 1.02; letter-spacing: -0.01em; }
+
+.section{ padding-block: var(--section-pad); position: relative; }
+.section--alt{ background: var(--paper-alt); }
+
+/* -------- Kicker: título fuerte + acento manuscrito -------- */
+.kicker{ display: block; }
+.kicker__strong{
+  display: block;
+  font-size: var(--fs-h2);
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.kicker__strong em{ font-style: normal; color: var(--pink); }
+.kicker__script{
+  display: inline-flex;
+  align-items: flex-end;
+  gap: .4rem;
+  margin-top: .1em;
+  font-family: var(--script);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  color: var(--violet);
+  position: relative;
+}
+.kicker__swash{
+  width: clamp(90px, 14vw, 160px);
+  height: 20px;
+  overflow: visible;
+  margin-bottom: .3rem;
+}
+.kicker__swash path{
+  fill: none;
+  stroke: var(--pink);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+  pathLength: 1;
+  transition: stroke-dashoffset 1.1s var(--ease) .35s;
+}
+[data-reveal].is-visible .kicker__swash path,
+.is-visible .kicker__swash path{ stroke-dashoffset: 0; }
+
+.eyebrow{
+  display: inline-flex; align-items: center; gap: .55em;
+  font-family: var(--sans); font-weight: 700;
+  font-size: var(--fs-small); letter-spacing: .03em;
+  color: var(--violet); text-transform: uppercase;
+}
+.eyebrow::before{
+  content: ""; width: 10px; height: 10px; border-radius: 3px;
+  background: var(--pink); transform: rotate(45deg);
+}
+
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  padding: 1rem 1.9rem; font-family: var(--sans); font-size: var(--fs-nav); font-weight: 700;
+  border-radius: 999px; transition: transform var(--dur-s) var(--ease), background var(--dur-s) var(--ease), box-shadow var(--dur-s) var(--ease), color var(--dur-s) var(--ease);
+  white-space: nowrap;
+}
+.btn--solid{ background: var(--pink); color: var(--on-brand); box-shadow: 0 10px 24px rgba(227,28,110,0.28); }
+.btn--solid:hover{ background: var(--pink-deep); transform: translateY(-2px); }
+.btn--violet{ background: var(--violet); color: var(--on-brand); box-shadow: 0 10px 24px rgba(92,45,145,0.28); }
+.btn--violet:hover{ background: var(--violet-deep); transform: translateY(-2px); }
+.btn--ghost{ border: 2px solid var(--ink); color: var(--ink); }
+.btn--ghost:hover{ background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+.btn--underline{ border-bottom: 2px solid var(--pink); border-radius: 0; padding: .3rem 0; font-weight: 700; color: var(--violet); }
+.btn--underline:hover{ color: var(--pink); }
+
+/* =====================================================
+   PLACEHOLDER DE FOTOS
+===================================================== */
+.media-frame{ position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--stone); }
+.media-frame .ph, .media-frame .media-img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph{
+  display: flex; align-items: flex-end; padding: .9rem;
+  background: linear-gradient(160deg, #E7E3DC, #D6D1C8 60%, #C9C3B8);
+}
+.ph::before{
+  content: ""; position: absolute; inset: 0; opacity: .5;
+  background-image: repeating-linear-gradient(125deg, rgba(36,30,46,0.05) 0 2px, transparent 2px 16px);
+}
+.ph::after{
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(227,28,110,0.10), transparent 55%),
+              radial-gradient(circle at 75% 80%, rgba(92,45,145,0.12), transparent 55%);
+}
+.ph__tag{
+  position: relative; z-index: 1;
+  font-family: var(--sans); font-weight: 700; font-size: .7rem; letter-spacing: .02em;
+  color: var(--violet-deep); background: rgba(251,248,244,0.85);
+  padding: .35rem .6rem; border-radius: 8px; border: 1.5px solid rgba(92,45,145,0.25);
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+.site-header{
+  position: fixed; inset: 0 0 auto 0; z-index: 500;
+  padding-block: 1.2rem; background: rgba(247,245,242,0.0);
+  transition: padding var(--dur-s) var(--ease), background var(--dur-s) var(--ease), box-shadow var(--dur-s) var(--ease);
+}
+.site-header .container{ display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.site-header.is-scrolled{
+  padding-block: .7rem; background: rgba(247,245,242,0.94); backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(36,30,46,0.1);
+}
+.brand{
+  font-family: var(--display); font-weight: 800; font-size: 1.4rem; line-height: .85;
+  display: inline-flex; flex-direction: column;
+}
+.brand span:first-child{ color: var(--pink); }
+.brand span:last-child{ color: var(--violet); }
+
+.main-nav{ display: none; }
+.main-nav ul{ display: flex; gap: clamp(1.1rem, 2vw, 2rem); }
+.main-nav a{
+  font-size: var(--fs-nav); font-weight: 600; color: var(--ink); position: relative; padding-bottom: .2rem;
+}
+.main-nav a::after{
+  content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px;
+  background: var(--pink); transition: right var(--dur-s) var(--ease);
+}
+.main-nav a:hover::after{ right: 0; }
+
+.header-actions{ display: flex; align-items: center; gap: .9rem; }
+.header-actions .btn{ display: none; }
+
+.hamburger{
+  display: flex; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 44px; align-items: center;
+  background: var(--ink); border-radius: 50%;
+}
+.hamburger span{ width: 18px; height: 2px; background: var(--paper); border-radius: 2px; transition: transform var(--dur-s) var(--ease), opacity var(--dur-s) var(--ease); }
+.hamburger[aria-expanded="true"] span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu{
+  position: fixed; inset: 0; z-index: 480;
+  background: linear-gradient(150deg, var(--pink), var(--violet));
+  color: var(--on-brand);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem var(--gutter) 3rem;
+  transform: translateY(-100%);
+  transition: transform var(--dur-m) var(--ease);
+}
+.mobile-menu.is-open{ transform: translateY(0); }
+.mobile-menu ul{ display: flex; flex-direction: column; gap: 1.1rem; }
+.mobile-menu a{ font-family: var(--display); font-weight: 700; font-size: clamp(1.9rem, 9vw, 2.7rem); text-transform: uppercase; }
+.mobile-menu .btn{ margin-top: 2rem; align-self: flex-start; background: var(--on-brand); color: var(--ink); }
+.mobile-menu__foot{ margin-top: auto; display: flex; gap: 1.5rem; font-size: var(--fs-small); opacity: .9; font-weight: 600; }
+
+@media (min-width: 900px){
+  .main-nav{ display: block; }
+  .header-actions .btn{ display: inline-flex; }
+  .hamburger{ display: none; }
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero{
+  padding-top: clamp(6.5rem, 14vw, 9rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+.hero .container{
+  display: grid;
+  gap: clamp(2.4rem, 5vw, 3rem);
+}
+.hero-copy{ position: relative; z-index: 2; }
+.hero-copy .eyebrow{ margin-bottom: 1rem; }
+.hero-title{
+  font-size: var(--fs-display);
+  text-transform: uppercase;
+  max-width: 13ch;
+  overflow: hidden;
+}
+.hero-title span{
+  display: block; overflow: hidden;
+}
+.hero-title span b{
+  display: inline-block; font-weight: 800;
+  transform: translateY(105%);
+  transition: transform var(--dur-l) var(--ease);
+}
+.hero-title span:nth-child(2) b{ color: var(--pink); }
+.hero.is-loaded .hero-title span b{ transform: translateY(0); }
+.hero.is-loaded .hero-title span:nth-child(1) b{ transition-delay: .05s; }
+.hero.is-loaded .hero-title span:nth-child(2) b{ transition-delay: .16s; }
+
+.hero-lead{
+  font-size: var(--fs-lead); color: var(--ink-soft); max-width: 34ch; margin-top: 1.3rem;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity var(--dur-m) var(--ease), transform var(--dur-m) var(--ease);
+  transition-delay: .32s;
+}
+.hero-cta{
+  display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity var(--dur-m) var(--ease), transform var(--dur-m) var(--ease);
+  transition-delay: .42s;
+}
+.hero.is-loaded .hero-lead, .hero.is-loaded .hero-cta{ opacity: 1; transform: translateY(0); }
+
+.hero-visual{
+  position: relative;
+  z-index: 1;
+  opacity: 0; transform: translateY(24px) scale(.98);
+  transition: opacity var(--dur-l) var(--ease), transform var(--dur-l) var(--ease);
+  transition-delay: .2s;
+}
+.hero.is-loaded .hero-visual{ opacity: 1; transform: translateY(0) scale(1); }
+.hero-visual__blob{
+  position: absolute;
+  width: 78%; aspect-ratio: 1/1;
+  top: -8%; right: -12%;
+  background: radial-gradient(circle, var(--violet-tint), transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(2px);
+}
+.hero-visual__main{
+  border-radius: var(--radius);
+  aspect-ratio: 4/5;
+  transform: rotate(-2.5deg);
+  box-shadow: 0 30px 60px rgba(36,30,46,0.18);
+}
+.hero-visual__accent{
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 3/4;
+  right: -8%;
+  bottom: -9%;
+  border-radius: 20px;
+  transform: rotate(4deg);
+  border: 6px solid var(--paper);
+  box-shadow: 0 20px 40px rgba(36,30,46,0.2);
+}
+.hero-visual__tag{
+  position: absolute;
+  left: -6%;
+  bottom: 10%;
+  background: var(--pink);
+  color: var(--on-brand);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: .85rem;
+  padding: .7rem 1rem;
+  border-radius: 14px;
+  transform: rotate(-4deg);
+  box-shadow: 0 12px 24px rgba(227,28,110,0.3);
+}
+
+@media (min-width: 960px){
+  .hero .container{ grid-template-columns: 1fr 1fr; align-items: center; }
+  .hero-title{ max-width: 11ch; }
+}
+
+/* =====================================================
+   MARQUEE — LIBERTAD · MOVIMIENTO · EXPRESIÓN
+===================================================== */
+.marquee{
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  padding-block: .9rem;
+  white-space: nowrap;
+}
+.marquee__track{
+  display: inline-flex;
+  gap: 2.5rem;
+  animation: marquee 26s linear infinite;
+  will-change: transform;
+}
+.marquee__track span{
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.marquee__track span i{
+  font-style: normal;
+  color: var(--pink);
+}
+.marquee__track span::after{
+  content: "•";
+  color: var(--violet-tint);
+  margin-left: 2.5rem;
+}
+@keyframes marquee{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee__track{ animation: none; }
+}
+
+/* =====================================================
+   REVEAL ON SCROLL
+===================================================== */
+[data-reveal]{ opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-reveal].is-visible{ opacity: 1; transform: translateY(0); }
+[data-reveal-group] > *{ opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+[data-reveal-group].is-visible > *{ opacity: 1; transform: translateY(0); }
+[data-reveal-group].is-visible > *:nth-child(1){ transition-delay: .04s; }
+[data-reveal-group].is-visible > *:nth-child(2){ transition-delay: .12s; }
+[data-reveal-group].is-visible > *:nth-child(3){ transition-delay: .2s; }
+[data-reveal-group].is-visible > *:nth-child(4){ transition-delay: .28s; }
+[data-reveal-group].is-visible > *:nth-child(5){ transition-delay: .36s; }
+
+/* =====================================================
+   INTRO — DISEÑAMOS PARA QUE EL VESTUARIO ACOMPAÑE...
+===================================================== */
+.intro-statement{
+  font-size: var(--fs-h2);
+  max-width: 22ch;
+  text-transform: uppercase;
+}
+.intro-statement em{ font-style: normal; color: var(--pink); }
+.intro-statement em.v{ color: var(--violet); }
+
+.universes{ margin-top: clamp(3rem, 6vw, 5rem); border-top: 2px solid var(--line); }
+.universe-row{
+  display: grid; grid-template-columns: 1fr; gap: 1.1rem;
+  padding-block: clamp(1.6rem, 3.6vw, 2.4rem);
+  border-bottom: 2px solid var(--line);
+  align-items: center;
+}
+.universe-row__num{ font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--violet); }
+.universe-row__title{ font-family: var(--display); font-size: clamp(1.9rem, 5vw, 3rem); text-transform: uppercase; }
+.universe-row__desc{ color: var(--ink-soft); max-width: 42ch; }
+.universe-row .media-frame{ aspect-ratio: 4/5; width: 100%; max-width: 200px; border-radius: 18px; }
+
+@media (min-width: 860px){
+  .universe-row{ grid-template-columns: auto 1fr 1.1fr auto; gap: 2rem; }
+  .universe-row:nth-child(even) .universe-row__media{ order: -1; }
+}
+
+/* =====================================================
+   GALERÍA — composición asimétrica intencional
+===================================================== */
+.gallery-head{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+
+.gallery{ display: grid; grid-template-columns: 1fr; gap: clamp(.7rem, 1.4vw, 1rem); }
+.gallery-item{
+  position: relative; overflow: hidden; border-radius: 18px;
+  aspect-ratio: 4/5;
+}
+.gallery-item .media-img, .gallery-item .ph{ transition: transform 1s var(--ease); }
+.gallery-item:hover .media-img, .gallery-item:hover .ph{ transform: scale(1.05); }
+
+.gallery-cap{
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: .9rem .9rem .8rem;
+  color: var(--on-brand);
+  background: linear-gradient(0deg, rgba(36,30,46,0.82) 0%, rgba(36,30,46,0) 100%);
+}
+.gallery-cap p{ font-size: .74rem; line-height: 1.4; font-weight: 600; }
+.gallery-cap p:first-child{ font-family: var(--display); font-size: .95rem; }
+.gallery-cap-btn{ position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; }
+
+.gallery-more{ margin-top: clamp(1.8rem, 3vw, 2.6rem); text-align: center; }
+
+@media (min-width: 720px){
+  .gallery{
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: clamp(150px, 15vw, 230px);
+    gap: 1rem;
+  }
+  .gallery-item{ aspect-ratio: auto; border-radius: 22px; }
+  .gallery-item:nth-child(1){ grid-column: 1 / 3; grid-row: 1 / 3; }
+  .gallery-item:nth-child(2){ grid-column: 3 / 4; grid-row: 1 / 2; }
+  .gallery-item:nth-child(3){ grid-column: 4 / 5; grid-row: 1 / 3; }
+  .gallery-item:nth-child(4){ grid-column: 3 / 4; grid-row: 2 / 3; }
+  .gallery-item:nth-child(5){ grid-column: 1 / 2; grid-row: 3 / 4; }
+  .gallery-item:nth-child(6){ grid-column: 2 / 4; grid-row: 3 / 4; }
+  .gallery-item:nth-child(7){ grid-column: 4 / 5; grid-row: 3 / 5; }
+  .gallery-item:nth-child(8){ grid-column: 1 / 3; grid-row: 4 / 5; }
+  .gallery-item:nth-child(9){ grid-column: 3 / 4; grid-row: 5 / 6; }
+  .gallery-item:nth-child(10){ grid-column: 1 / 5; grid-row: 6 / 7; }
+  .gallery-item:nth-child(9) ~ .gallery-item{ grid-row: auto; }
+}
+
+/* =====================================================
+   PREMIOS
+===================================================== */
+.awards-intro{ max-width: 40rem; }
+.awards-intro p.body{ margin-top: 1rem; color: var(--ink-soft); max-width: 50ch; font-size: var(--fs-lead); }
+
+.awards{ margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; grid-template-columns: 1fr; gap: clamp(1.6rem, 3vw, 2.2rem); }
+.award-card{ display: grid; grid-template-columns: auto 1fr; gap: 1.3rem; align-items: center; }
+.award-card .media-frame{ width: clamp(120px, 22vw, 190px); aspect-ratio: 3/4; border-radius: 18px; }
+.award-card__num{ font-family: var(--display); font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 800; color: var(--pink); line-height: .8; }
+.award-card__label{ font-size: .78rem; font-weight: 700; letter-spacing: .04em; color: var(--violet); text-transform: uppercase; margin-top: .5rem; }
+.award-card__name{ font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.9rem); margin-top: .25rem; text-transform: uppercase; }
+.award-card__meta{ margin-top: .25rem; font-size: var(--fs-small); color: var(--ink-soft); font-weight: 600; }
+
+@media (min-width: 760px){
+  .awards{ grid-template-columns: repeat(3, 1fr); }
+  .award-card{ grid-template-columns: 1fr; text-align: left; }
+  .award-card .media-frame{ width: 100%; margin-bottom: .3rem; }
+}
+
+/* =====================================================
+   PROCESO — recorrido vertical
+===================================================== */
+.process-head{ max-width: 40rem; }
+
+.process-list{ margin-top: clamp(2.5rem, 5vw, 4rem); position: relative; }
+.process-list::before{
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 8px; bottom: 8px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--pink), var(--violet));
+}
+.process-item{
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1.2rem;
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+.process-item:last-child{ padding-bottom: 0; }
+.process-item__num{
+  position: relative; z-index: 1;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-weight: 700; font-size: 1.1rem;
+  background: var(--paper); border: 3px solid var(--pink); color: var(--pink);
+}
+.process-item:nth-child(2n) .process-item__num{ border-color: var(--violet); color: var(--violet); }
+.process-item__body{ padding-top: .5rem; }
+.process-item__title{ font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.9rem); text-transform: uppercase; }
+.process-item__desc{ margin-top: .4rem; color: var(--ink-soft); max-width: 46ch; }
+.process-item__media{ margin-top: 1rem; max-width: 320px; }
+.process-item__media .media-frame{ aspect-ratio: 16/10; border-radius: 16px; }
+
+@media (min-width: 760px){
+  .process-item{ grid-template-columns: 56px 1fr 260px; align-items: flex-start; }
+  .process-item__media{ margin-top: 0; max-width: none; }
+}
+
+/* =====================================================
+   ESTUDIOS
+===================================================== */
+.studios{ display: grid; gap: clamp(2.2rem, 5vw, 3rem); align-items: center; }
+.studios__visual{ position: relative; }
+.studios__visual .media-frame{ aspect-ratio: 4/5; border-radius: var(--radius); }
+.studios__visual-accent{
+  position: absolute; width: 42%; aspect-ratio: 1/1; right: -8%; bottom: -8%;
+  border-radius: 16px; border: 6px solid var(--paper); transform: rotate(-5deg);
+  box-shadow: 0 16px 32px rgba(36,30,46,0.18);
+}
+.studios__intro{ color: var(--ink-soft); font-size: var(--fs-lead); margin-top: 1rem; max-width: 34ch; }
+.studios__list{ margin-top: 1.6rem; display: grid; gap: 0; }
+.studios__list li{
+  padding-block: 1rem; border-top: 2px solid var(--line);
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  font-family: var(--display); font-size: clamp(1.1rem, 2vw, 1.5rem); text-transform: uppercase;
+}
+.studios__list li:last-child{ border-bottom: 2px solid var(--line); }
+.studios__list li small{ font-family: var(--sans); font-size: var(--fs-small); color: var(--ink-soft); font-weight: 600; text-transform: none; }
+.studios__cta{ margin-top: 2.1rem; }
+
+@media (min-width: 900px){ .studios{ grid-template-columns: 1fr 1fr; } }
+
+/* =====================================================
+   SOBRE HORA LIBRE
+===================================================== */
+.about{ display: grid; gap: clamp(2.2rem, 5vw, 3rem); }
+.about__visual{ position: relative; }
+.about__visual .media-frame{ aspect-ratio: 3/4; border-radius: var(--radius); transform: rotate(-1.5deg); }
+.about__text{ margin-top: 1.3rem; display: grid; gap: 1rem; max-width: 50ch; color: var(--ink-soft); }
+.about__text p:first-of-type{ color: var(--ink); font-size: var(--fs-lead); }
+.about__signature{ margin-top: 1.5rem; font-family: var(--script); font-size: 1.6rem; color: var(--pink); }
+
+@media (min-width: 900px){ .about{ grid-template-columns: 0.85fr 1.15fr; align-items: center; } }
+
+/* =====================================================
+   CTA FINAL
+===================================================== */
+.final-cta{ position: relative; overflow: hidden; }
+.final-cta .media-frame{ position: absolute; inset: 0; z-index: 0; }
+.final-cta::after{
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(36,30,46,0.35), rgba(36,30,46,0.78));
+}
+.final-cta .container{ position: relative; z-index: 2; min-height: 62vh; display: flex; align-items: center; }
+.final-cta__content{ max-width: 42rem; color: var(--on-brand); }
+.final-cta h2{ font-size: var(--fs-display); text-transform: uppercase; }
+.final-cta h2 em{ font-style: normal; color: var(--pink); }
+.final-cta p{ margin-top: 1.2rem; font-size: var(--fs-lead); color: rgba(251,248,244,0.88); max-width: 36ch; }
+.final-cta .btn{ margin-top: 2rem; }
+
+/* =====================================================
+   FOOTER
+===================================================== */
+.site-footer{ background: var(--ink); color: rgba(251,248,244,0.78); padding-block: clamp(2.4rem, 5vw, 3.4rem); }
+.footer-top{ display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; padding-bottom: 2rem; border-bottom: 1px solid rgba(251,248,244,0.15); }
+.footer-brand{ font-family: var(--display); font-weight: 800; font-size: 1.5rem; }
+.footer-brand span:first-child{ color: var(--pink); }
+.footer-brand span:last-child{ color: var(--violet-tint); }
+.footer-tagline{ margin-top: .5rem; font-size: var(--fs-small); font-weight: 600; }
+.footer-links{ display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.footer-links h4{ font-size: var(--fs-small); letter-spacing: .03em; color: rgba(251,248,244,0.5); margin-bottom: .8rem; font-weight: 700; text-transform: uppercase; }
+.footer-links ul{ display: grid; gap: .5rem; font-weight: 600; }
+.footer-links a:hover{ color: var(--pink); }
+.footer-bottom{ padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: .8rem; }
+
+/* =====================================================
+   WHATSAPP FLOTANTE
+===================================================== */
+.wa-float{
+  position: fixed; right: clamp(1rem, 4vw, 1.8rem); bottom: clamp(1rem, 4vw, 1.8rem); z-index: 400;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--pink); color: var(--on-brand);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 28px rgba(227,28,110,0.4);
+  transition: transform var(--dur-s) var(--ease), background var(--dur-s) var(--ease);
+}
+.wa-float:hover{ background: var(--violet); transform: translateY(-3px) scale(1.04); }
+.wa-float svg{ width: 27px; height: 27px; }
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  [data-reveal], [data-reveal-group] > *, .hero-title span b, .hero-lead, .hero-cta, .hero-visual, .kicker__swash path{
+    opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <!-- CAMBIAR LOGO -->
+    <a class="brand" href="#top" aria-label="Hora Libre, inicio"><span>hora</span><span>libre</span></a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#trabajos">Trabajos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#premios">Reconocimientos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <!-- CAMBIAR WHATSAPP: número dentro del href -->
+      <a class="btn btn--solid" href="https://wa.me/5491100000000?text=Hola%20Hora%20Libre%2C%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20para%20nuestro%20estudio%20de%20danza." target="_blank" rel="noopener">Cotizar</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menú mobile -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Navegación mobile">
+    <ul>
+      <li><a href="#trabajos" data-menu-link>Trabajos</a></li>
+      <li><a href="#servicios" data-menu-link>Servicios</a></li>
+      <li><a href="#premios" data-menu-link>Reconocimientos</a></li>
+      <li><a href="#nosotros" data-menu-link>Nosotros</a></li>
+      <li><a href="#contacto" data-menu-link>Contacto</a></li>
+    </ul>
+    <a class="btn" href="https://wa.me/5491100000000?text=Hola%20Hora%20Libre%2C%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20para%20nuestro%20estudio%20de%20danza." target="_blank" rel="noopener">Cotizar</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a href="https://www.instagram.com/horalibre.dancewear/" target="_blank" rel="noopener">Instagram</a>
+    <span>Buenos Aires, Argentina</span>
+  </div>
+</div>
+
+<main id="contenido">
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="top" aria-label="Portada">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="eyebrow">Diseño y confección para danza</span>
+        <h1 class="hero-title">
+          <span><b>Vestuarios</b></span>
+          <span><b>hechos para</b></span>
+          <span><b>moverse.</b></span>
+        </h1>
+        <p class="hero-lead">Diseñamos y confeccionamos vestuario, uniformes y merch para estudios y grupos de danza.</p>
+        <div class="hero-cta">
+          <a class="btn btn--solid" href="https://wa.me/5491100000000?text=Hola%20Hora%20Libre%2C%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20para%20nuestro%20estudio%20de%20danza." target="_blank" rel="noopener">Contanos tu idea</a>
+          <a class="btn btn--ghost" href="#trabajos">Ver trabajos</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual__blob" aria-hidden="true"></div>
+        <div class="media-frame hero-visual__main">
+          <!-- CAMBIAR FOTO: hero-hora-libre.jpg (bailarina o grupo en movimiento) -->
+          <div class="ph" data-tone="1" role="img" aria-label="Bailarina con vestuario de Hora Libre en pleno movimiento">
+            <span class="ph__tag">hero-hora-libre.jpg</span>
+          </div>
+        </div>
+        <div class="media-frame hero-visual__accent">
+          <!-- CAMBIAR FOTO: vestuario-01.jpg -->
+          <div class="ph" data-tone="2"><span class="ph__tag">vestuario-01.jpg</span></div>
+        </div>
+        <span class="hero-visual__tag">Hecho en Argentina</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE — LIBERTAD · MOVIMIENTO · EXPRESIÓN
+  ============================================================ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>LIBERTAD <i>·</i> MOVIMIENTO <i>·</i> EXPRESIÓN</span>
+      <span>LIBERTAD <i>·</i> MOVIMIENTO <i>·</i> EXPRESIÓN</span>
+      <span>LIBERTAD <i>·</i> MOVIMIENTO <i>·</i> EXPRESIÓN</span>
+      <span>LIBERTAD <i>·</i> MOVIMIENTO <i>·</i> EXPRESIÓN</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       INTRO
+  ============================================================ -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <h2 class="intro-statement" data-reveal>Diseñamos para que <em>el vestuario</em> acompañe el <em class="v">movimiento</em>, no lo limite.</h2>
+
+      <div class="universes">
+        <div class="universe-row" data-reveal>
+          <span class="universe-row__num">01</span>
+          <h3 class="universe-row__title">Vestuario</h3>
+          <p class="universe-row__desc">Diseño y confección para competencias, muestras, obras, coreografías y presentaciones.</p>
+          <div class="universe-row__media media-frame">
+            <!-- CAMBIAR FOTO: vestuario-02.jpg -->
+            <div class="ph" data-tone="1"><span class="ph__tag">vestuario-02.jpg</span></div>
+          </div>
+        </div>
+
+        <div class="universe-row" data-reveal>
+          <span class="universe-row__num">02</span>
+          <h3 class="universe-row__title">Uniformes</h3>
+          <p class="universe-row__desc">Prendas personalizadas que representan la identidad de cada estudio o escuela de danza.</p>
+          <div class="universe-row__media media-frame">
+            <!-- CAMBIAR FOTO: uniformes-01.jpg -->
+            <div class="ph" data-tone="2"><span class="ph__tag">uniformes-01.jpg</span></div>
+          </div>
+        </div>
+
+        <div class="universe-row" data-reveal>
+          <span class="universe-row__num">03</span>
+          <h3 class="universe-row__title">Merch</h3>
+          <p class="universe-row__desc">Remeras, buzos, conjuntos y prendas pensadas para alumnos, equipos y comunidad del estudio.</p>
+          <div class="universe-row__media media-frame">
+            <!-- CAMBIAR FOTO: uniformes-02.jpg -->
+            <div class="ph" data-tone="3"><span class="ph__tag">uniformes-02.jpg</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALERÍA — CREACIONES en movimiento
+  ============================================================ -->
+  <section class="section section--alt" id="trabajos">
+    <div class="container">
+      <div class="gallery-head" data-reveal>
+        <h2 class="kicker">
+          <span class="kicker__strong">Creaciones</span>
+          <span class="kicker__script">en movimiento
+            <svg class="kicker__swash" viewBox="0 0 160 20" aria-hidden="true"><path d="M3,14 C35,2 70,20 100,10 C120,3 140,14 157,8" pathLength="1"/></svg>
+          </span>
+        </h2>
+      </div>
+
+      <div class="gallery" data-reveal>
+
+        <!-- CAMBIAR FOTO: vestuario-03.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="1"><span class="ph__tag">vestuario-03.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-04.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="2"><span class="ph__tag">vestuario-04.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-05.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="3"><span class="ph__tag">vestuario-05.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-06.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="1"><span class="ph__tag">vestuario-06.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-07.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="2"><span class="ph__tag">vestuario-07.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-08.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="4"><span class="ph__tag">vestuario-08.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-09.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="3"><span class="ph__tag">vestuario-09.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: vestuario-10.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle del vestuario" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="1"><span class="ph__tag">vestuario-10.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>[Disciplina] — [Competencia / año]</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: uniformes-03.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="2"><span class="ph__tag">uniformes-03.jpg</span></div></div>
+          <div class="gallery-cap"><p>[Nombre del estudio]</p><p>Uniformes</p></div>
+        </div>
+
+        <!-- CAMBIAR FOTO: proceso-02.jpg -->
+        <div class="gallery-item">
+          <button class="gallery-cap-btn" aria-label="Ver detalle" data-gallery-toggle></button>
+          <div class="media-frame"><div class="ph" data-tone="4"><span class="ph__tag">proceso-02.jpg</span></div></div>
+          <div class="gallery-cap"><p>Backstage</p><p>Detrás de escena</p></div>
+        </div>
+
+      </div>
+
+      <div class="gallery-more" data-reveal>
+        <a class="btn btn--underline" href="https://www.instagram.com/horalibre.dancewear/" target="_blank" rel="noopener">Ver más en Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PREMIOS
+  ============================================================ -->
+  <section class="section" id="premios">
+    <div class="container">
+      <div class="awards-intro" data-reveal>
+        <h2 class="kicker">
+          <span class="kicker__strong">Premiados</span>
+          <span class="kicker__script">en escena
+            <svg class="kicker__swash" viewBox="0 0 160 20" aria-hidden="true"><path d="M3,14 C35,2 70,20 100,10 C120,3 140,14 157,8" pathLength="1"/></svg>
+          </span>
+        </h2>
+        <p class="body">Los vestuarios de Hora Libre fueron distinguidos en competencias de danza, reconociendo el diseño, la creatividad y el trabajo detrás de cada puesta en escena.</p>
+      </div>
+
+      <div class="awards" data-reveal>
+        <!-- CAMBIAR PREMIO: copiar/pegar este bloque para agregar más -->
+        <div class="award-card">
+          <div class="media-frame">
+            <!-- CAMBIAR FOTO: premio-01.jpg -->
+            <div class="ph" data-tone="1"><span class="ph__tag">premio-01.jpg</span></div>
+          </div>
+          <div>
+            <p class="award-card__num">01</p>
+            <p class="award-card__label">Mejor vestuario</p>
+            <h3 class="award-card__name">[Competencia]</h3>
+            <p class="award-card__meta">[Año]</p>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="media-frame">
+            <!-- CAMBIAR FOTO: premio-02.jpg -->
+            <div class="ph" data-tone="2"><span class="ph__tag">premio-02.jpg</span></div>
+          </div>
+          <div>
+            <p class="award-card__num">02</p>
+            <p class="award-card__label">Mejor vestuario</p>
+            <h3 class="award-card__name">[Competencia]</h3>
+            <p class="award-card__meta">[Año]</p>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <div class="media-frame">
+            <!-- CAMBIAR FOTO: premio-03.jpg -->
+            <div class="ph" data-tone="3"><span class="ph__tag">premio-03.jpg</span></div>
+          </div>
+          <div>
+            <p class="award-card__num">03</p>
+            <p class="award-card__label">Mejor vestuario</p>
+            <h3 class="award-card__name">[Competencia]</h3>
+            <p class="award-card__meta">[Año]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESO
+  ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="process-head" data-reveal>
+        <h2 class="kicker">
+          <span class="kicker__strong">Del concepto</span>
+          <span class="kicker__script">al escenario
+            <svg class="kicker__swash" viewBox="0 0 160 20" aria-hidden="true"><path d="M3,14 C35,2 70,20 100,10 C120,3 140,14 157,8" pathLength="1"/></svg>
+          </span>
+        </h2>
+      </div>
+
+      <div class="process-list" data-reveal>
+        <div class="process-item">
+          <span class="process-item__num">01</span>
+          <div class="process-item__body">
+            <h3 class="process-item__title">Contanos tu idea</h3>
+            <p class="process-item__desc">Coreografía, estilo, cantidad de bailarines, edades, fecha y referencias.</p>
+          </div>
+          <div class="process-item__media media-frame">
+            <!-- CAMBIAR FOTO: proceso-01.jpg -->
+            <div class="ph" data-tone="1"><span class="ph__tag">proceso-01.jpg</span></div>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <span class="process-item__num">02</span>
+          <div class="process-item__body">
+            <h3 class="process-item__title">Diseñamos</h3>
+            <p class="process-item__desc">Definimos modelo, materiales, colores y detalles.</p>
+          </div>
+          <div class="process-item__media"></div>
+        </div>
+
+        <div class="process-item">
+          <span class="process-item__num">03</span>
+          <div class="process-item__body">
+            <h3 class="process-item__title">Confeccionamos</h3>
+            <p class="process-item__desc">Trabajamos cada prenda pensando en estética, comodidad y movimiento.</p>
+          </div>
+          <div class="process-item__media media-frame">
+            <!-- CAMBIAR FOTO: proceso-02.jpg -->
+            <div class="ph" data-tone="2"><span class="ph__tag">proceso-02.jpg</span></div>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <span class="process-item__num">04</span>
+          <div class="process-item__body">
+            <h3 class="process-item__title">A escena</h3>
+            <p class="process-item__desc">Los vestuarios están listos para formar parte de la coreografía.</p>
+          </div>
+          <div class="process-item__media"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ESTUDIOS
+  ============================================================ -->
+  <section class="section" id="nosotros">
+    <div class="container">
+      <div class="studios" data-reveal>
+        <div class="studios__visual">
+          <div class="media-frame">
+            <!-- CAMBIAR FOTO: uniformes-01.jpg -->
+            <div class="ph" data-tone="2"><span class="ph__tag">uniformes-01.jpg</span></div>
+          </div>
+          <div class="media-frame studios__visual-accent">
+            <!-- CAMBIAR FOTO: uniformes-02.jpg -->
+            <div class="ph" data-tone="3"><span class="ph__tag">uniformes-02.jpg</span></div>
+          </div>
+        </div>
+        <div>
+          <h2 class="kicker">
+            <span class="kicker__strong">Para tu</span>
+            <span class="kicker__script">estudio
+              <svg class="kicker__swash" viewBox="0 0 120 20" aria-hidden="true"><path d="M3,14 C30,2 55,20 80,10 C95,3 105,14 117,8" pathLength="1"/></svg>
+            </span>
+          </h2>
+          <p class="studios__intro">Una identidad que también se viste.</p>
+          <ul class="studios__list">
+            <li>Vestuario <small>Muestras y competencias</small></li>
+            <li>Uniformes <small>Identidad del estudio</small></li>
+            <li>Merch <small>Alumnos, equipos y familias</small></li>
+          </ul>
+          <div class="studios__cta">
+            <a class="btn btn--violet" href="https://wa.me/5491100000000?text=Hola%20Hora%20Libre%2C%20quiero%20crear%20una%20propuesta%20de%20vestuario%2Funiformes%2Fmerch%20para%20mi%20estudio%20de%20danza." target="_blank" rel="noopener">Quiero crear algo para mi estudio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE HORA LIBRE
+  ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="about" data-reveal>
+        <div class="about__visual media-frame">
+          <!-- CAMBIAR FOTO: sole-hora-libre.jpg (Sole trabajando / diseñando) -->
+          <div class="ph" data-tone="1"><span class="ph__tag">sole-hora-libre.jpg</span></div>
+        </div>
+        <div>
+          <h2 class="kicker">
+            <span class="kicker__strong">Detrás de</span>
+            <span class="kicker__script">Hora Libre
+              <svg class="kicker__swash" viewBox="0 0 140 20" aria-hidden="true"><path d="M3,14 C32,2 60,20 88,10 C105,3 118,14 137,8" pathLength="1"/></svg>
+            </span>
+          </h2>
+          <!-- CAMBIAR TEXTO SOBRE SOLE: reemplazar por texto real -->
+          <div class="about__text">
+            <p>[Acá va el texto sobre cómo nació Hora Libre: el vínculo de Sole con la danza y qué la llevó a empezar a diseñar vestuario.]</p>
+            <p>[Un párrafo sobre su mirada del vestuario: cada diseño parte del movimiento y de la comodidad de quien lo va a bailar.]</p>
+            <p>[Un párrafo sobre el trabajo hecho a medida: los tiempos, el detalle, el ida y vuelta con cada estudio o coreógrafo.]</p>
+          </div>
+          <p class="about__signature">Sole, Hora Libre</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+  ============================================================ -->
+  <section class="final-cta" id="contacto">
+    <div class="media-frame">
+      <!-- CAMBIAR FOTO: cta-final.jpg (producción real, foto espectacular) -->
+      <div class="ph" data-tone="4"><span class="ph__tag">cta-final.jpg</span></div>
+    </div>
+    <div class="container">
+      <div class="final-cta__content" data-reveal>
+        <h2>Tu próxima <em>idea</em> empieza acá.</h2>
+        <p>Contanos sobre tu próxima muestra, competencia o proyecto.</p>
+        <a class="btn btn--solid" href="https://wa.me/5491100000000?text=Hola%20Hora%20Libre%2C%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20para%20nuestro%20estudio%20de%20danza." target="_blank" rel="noopener">Contanos tu proyecto</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand"><span>hora</span> <span>libre</span></p>
+        <p class="footer-tagline">Vestuario · Uniformes · Merch</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Seguinos</h4>
+          <ul>
+            <!-- CAMBIAR INSTAGRAM -->
+            <li><a href="https://www.instagram.com/horalibre.dancewear/" target="_blank" rel="noopener">Instagram</a></li>
+            <!-- CAMBIAR WHATSAPP -->
+            <li><a href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ubicación</h4>
+          <ul><li>Buenos Aires, Argentina</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Hora Libre. Todos los derechos reservados.</span>
+      <span>Diseño y confección de vestuario para danza</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<!-- CAMBIAR WHATSAPP -->
+<a class="wa-float" href="https://wa.me/5491100000000?text=Hola%20Hora%20Libre%2C%20quer%C3%ADa%20consultar%20por%20un%20proyecto%20para%20nuestro%20estudio%20de%20danza." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.02h-.01a8.1 8.1 0 0 1-4.14-1.13l-.3-.18-3.14.82.84-3.06-.19-.32a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.67-8.16 8.19-8.16 2.19 0 4.24.85 5.79 2.4a8.12 8.12 0 0 1 2.4 5.78c0 4.5-3.67 8.2-8.19 8.2Zm4.48-6.13c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.97-1.21-.73-.65-1.22-1.45-1.36-1.7-.14-.24-.02-.37.11-.5.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.59 4.11 3.63.57.25 1.02.39 1.37.5.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Año dinámico ---------- */
+  var yearEl = document.getElementById('year');
+  if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  /* ---------- Header on scroll ---------- */
+  var header = document.getElementById('siteHeader');
+  function onScrollHeader(){
+    if(window.scrollY > 40){ header.classList.add('is-scrolled'); }
+    else{ header.classList.remove('is-scrolled'); }
+  }
+  onScrollHeader();
+  window.addEventListener('scroll', onScrollHeader, { passive: true });
+
+  /* ---------- Menú mobile ---------- */
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function closeMenu(){
+    mobileMenu.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  function openMenu(){
+    mobileMenu.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  hamburger.addEventListener('click', function(){
+    if(mobileMenu.classList.contains('is-open')){ closeMenu(); } else { openMenu(); }
+  });
+  document.querySelectorAll('[data-menu-link]').forEach(function(link){
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeMenu(); }
+  });
+
+  /* ---------- Hero: secuencia de entrada ---------- */
+  var hero = document.querySelector('.hero');
+  window.addEventListener('load', function(){
+    requestAnimationFrame(function(){ hero.classList.add('is-loaded'); });
+  });
+
+  /* ---------- Reveal al hacer scroll ---------- */
+  var revealEls = document.querySelectorAll('[data-reveal], [data-reveal-group]');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Galería: toggle en touch ---------- */
+  document.querySelectorAll('[data-gallery-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.gallery-item');
+      var wasOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.gallery-item.is-open').forEach(function(el){ el.classList.remove('is-open'); });
+      if(!wasOpen){ item.classList.add('is-open'); }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
